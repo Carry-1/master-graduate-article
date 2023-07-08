@@ -1,0 +1,34 @@
+% !TeX root = ../main.tex
+
+\ustcsetup{
+  keywords  = {流量采集, 网络监控, 高可用},
+  keywords* = {traffic collection, network monitoring, keywords},
+}
+
+\begin{abstract}
+  随着其承载业务规模的不断增大，底层网络的规模也在不断扩大，这时网络拥塞
+状况和网络排障速度以及路由验证等会越来越被网络工程师们关注。缓解网络拥塞状
+况的思路很简单：即发现拥塞线路，并将拥塞线路流量调离一部分到非拥塞线路，网
+络排障通常是在故障时通过分析网络中流经的历史流量解决故障，路由验证则通常是
+通过网络中的路由来获取可达性等信息。本文即设计和实现一套基于 BGP 协议(Border 
+Gateway Protocol，边界网关协议)的网络监控系统，以应用于网络拥塞解决、网络排障
+以及路由验证等场景。
+ 本系统支持 BGP 路由采集和下发，历史路由存储与查询，BGP 邻居状态监控和路
+由验证等功能。本系统基于 BGP 协议，采用 Golang 语言在 Linux 平台进行开发，使 用 Redis 作为存储 BGP 路由的数据库，采用 ClickHouse 作为存储历史路由的时序数
+据库，采用 Kafka 用于将采集到的 BGP 路由接入到 ClickHouse，使用 openTSDB 作为
+系统各模块健康数据存储的时序数据库，采用 Grafana 用于各组件健康状况监控大盘，
+同时支持高可用和高并发。
+本系统的目标是支撑字节跳动内部许多其他在线/离线/公网/内网流量调度系统、
+网络排障系统以及路由验证系统的发展，从而达到能够降低高峰期及各种节假日、
+活动期间网络拥塞状况以及缩短网络排障时间的目的，从而为网络建设和运维节约
+成本，进而能够提高业务部门的上升空间，同时也能网络监控系统的发展提供一些
+新思路。
+\end{abstract}
+
+\begin{abstract*}
+With the continuous increase of the scale of its carrying business, the scale of the underlying network is also expanding. At this time, network congestion, network troubleshooting speed, and route verification will be more and more concerned by network engineers. The idea of alleviating network congestion is simple: discover congested lines and transfer part of the congested line traffic to non-congested lines. Network troubleshooting is usually to solve the fault by analyzing the historical traffic flowing through the network when it fails. Routing verification is usually to obtain information such as reachability through routes in the network. This paper designs and implements a network monitoring system based on BGP protocol (Border Gateway Protocol, Border Gateway Protocol ) to be applied to network congestion resolution, network troubleshooting and route verification scenarios.  
+
+The system supports BGP route acquisition and distribution, historical route storage and query, BGP neighbor status monitoring and route verification. The system is based on BGP protocol, using Golang language to develop on Linux platform, using Redis as the database for storing BGP routes, using ClickHouse as the time series database for storing historical routes, using Kafka to access the collected BGP routes to ClickHouse, using openTSDB as the time series database for storing health data of each module of the system, using Grafana for each component Health monitoring of the market, while supporting high availability and high concurrency. 
+
+The goal of this system is to support the development of many other online/offline/public/intranet traffic scheduling systems, network troubleshooting systems, and routing verification systems within ByteDance, so as to reduce network congestion during peak periods, various holidays, and events. The purpose of shortening the network troubleshooting time is to save costs for network construction and operation and maintenance, thereby improving the growth space of business departments, and at the same time providing some new ideas for the development of network monitoring systems.
+\end{abstract*}
