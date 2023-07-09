@@ -1,0 +1,39 @@
+% !TeX root = ../main.tex
+
+\chapter{相关理论与技术分析}
+
+\section{BGP协议简介}
+
+\subsection{IBGP与EBGP的区别}
+
+
+\subsection{BGP协议的缺陷及解决方案}
+BGP协议的缺陷： Full Mesh
+
+Route Reflector, VRF, BGP confederation
+
+\section{BGP守护进程比较}
+exabgp: 缺陷， 每秒钟最多安装3000条路由到交换机上
+
+gobgp:
+
+FRR:
+
+\section{时序数据库选型}
+Elastic Search
+
+Clickhouse
+
+\section{路由采集方式}
+Restful API
+
+建立BGP会话采集
+
+建立BMP会话采集
+
+\section{高可用实现}
+routes collector, VHC高可用 zookeeper算法
+
+BGP Programmer高可用
+
+BGP Listener高可用
